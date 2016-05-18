@@ -17,3 +17,4 @@ client_secret.json
 !systemjs.config.js
 !typings/typings.d.ts
 !wallaby.js
+!server.js
