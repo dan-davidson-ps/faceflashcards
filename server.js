@@ -10,5 +10,5 @@ var server = http.createServer(function(req, res) {
     serve(req, res, done);
 });
 
-server.listen(80);
-console.log("listening on port 80")
+server.listen(3000);
+console.log("listening on port 3000")
