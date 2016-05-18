@@ -10,7 +10,8 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "webdriver:update": "webdriver-manager update"
+    "webdriver:update": "webdriver-manager update",
+    "start:server": "http-server -p 80 -d False -i False -r"
   },
   "keywords": [],
   "author": "",
