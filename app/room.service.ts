@@ -1,16 +1,18 @@
 import { Room } from './room';
-import { ROOMS } from './mock-rooms';
+import { SITES } from './mock-rooms';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RoomService {
-  getRooms() {
-    return Promise.resolve(ROOMS);
+  getRooms(siteId:string) {
+    return Promise.resolve(SITES[siteId]);
   }
 
-  getRoom(id: string) {
-    return Promise.resolve(ROOMS).then(
-      room => room.filter(room => room.id === id)[0]
-    );
+  getRoom(siteId: string, id: string) {
+    return Promise.resolve(SITES[siteId].rooms).then(rooms => rooms.filter((room:Room) => {room.id === id}))[0];
+  }
+
+  getSite(siteId: string) {
+    return Promise.resolve(SITES[siteId])
   }
 }

@@ -18,9 +18,9 @@ export class RoomDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    let id:string = this.routeParams.get('id');
-    this.roomService.getRoom(id)
-      .then(room => this.room = room);
+    // let id:string = this.routeParams.get('id');
+    // this.roomService.getRoom(id)
+    //   .then(room => this.room = room);
   }
 
 }

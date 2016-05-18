@@ -24,7 +24,9 @@ export class SvgImageComponent implements OnInit {
 
     loadSvg() {
         this.http.get( this.src )
-            .subscribe( res => this.svgData = res.text() )
+            .subscribe(
+                res => this.svgData = res.text(),
+                error => console.log('rx error', error))
     }
 
 }

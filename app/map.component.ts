@@ -1,5 +1,5 @@
-import {ViewChild, ElementRef, Component, ElementRef, OnInit} from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {ViewChild, ElementRef, Component, OnInit, Input, Inject} from '@angular/core';
+import {OnActivate, Router, RouteSegment} from '@angular/router';
 
 import {Room} from './room';
 import {RoomService} from './room.service';
@@ -13,7 +13,11 @@ declare var jQuery:any;
     styleUrls: ['app/map.component.css'],
     directives: [SvgImageComponent]
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnActivate {
+
+    private image:string;
+    private site:string;
+
 
     @ViewChild(SvgImageComponent) svg:ElementRef;
 
@@ -24,13 +28,26 @@ export class MapComponent implements OnInit {
                 private elementRef:ElementRef) {
     }
 
-    ngOnInit() {
-        this.roomService.getRooms()
-            .then(rooms => {
-                this.rooms = rooms
+    routerOnActivate(curr:RouteSegment):void {
+        this.site = curr.getParam('site');
+        this.roomService.getSite(this.site)
+            .then(site => {
+                console.log('site', site);
+                console.log('image', site.image);
+                this.image = "images/" + site.image;
+                this.rooms = site.rooms;
             })
-            .catch(err => console.error('error loading rooms', err ))
+            .catch(err => console.error(err))
+
     }
+
+    // ngOnInit() {
+    //     this.roomService.getRooms(this.site)
+    //         .then(rooms => {
+    //             this.rooms = rooms
+    //         })
+    //         .catch(err => console.error('error loading rooms for site: '+this.site, err ))
+    // }
 
     showDetail(room:Room) {
         //TODO:
