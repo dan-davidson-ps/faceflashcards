@@ -13,7 +13,7 @@ declare var jQuery:any;
     styleUrls: ['app/map.component.css'],
     directives: [SvgImageComponent]
 })
-export class MapComponent implements OnInit, OnActivate {
+export class MapComponent implements OnActivate {
 
     private image:string;
     private site:string;

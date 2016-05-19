@@ -26,7 +26,7 @@ import {HTTP_PROVIDERS, Http} from '@angular/http'
 @Routes([
     {path: '/site/:site',  component: MapComponent}
 ])
-export class AppComponent implements OnInit {
+export class AppComponent {
     title = 'Conference Room Finder';
 
     constructor(private router: Router) {}
