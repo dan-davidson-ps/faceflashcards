@@ -1,4 +1,4 @@
-import {ViewChild, ElementRef, Component, OnInit, Input, Inject} from '@angular/core';
+import {ViewChild, ElementRef, Component, Input, Inject} from '@angular/core';
 import {OnActivate, Router, RouteSegment} from '@angular/router';
 
 import {Room} from './room';
@@ -32,22 +32,12 @@ export class MapComponent implements OnActivate {
         this.site = curr.getParam('site');
         this.roomService.getSite(this.site)
             .then(site => {
-                console.log('site', site);
-                console.log('image', site.image);
                 this.image = "images/" + site.image;
                 this.rooms = site.rooms;
             })
             .catch(err => console.error(err))
 
     }
-
-    // ngOnInit() {
-    //     this.roomService.getRooms(this.site)
-    //         .then(rooms => {
-    //             this.rooms = rooms
-    //         })
-    //         .catch(err => console.error('error loading rooms for site: '+this.site, err ))
-    // }
 
     showDetail(room:Room) {
         //TODO:
