@@ -1,0 +1,3 @@
+#jquery.d.ts (at the end) removed $ to jquery because of incompatibility with something in this webpack, angular2, etc. stack
+
+typings install file:src/custom_typings/jquery.d.ts --global --save
