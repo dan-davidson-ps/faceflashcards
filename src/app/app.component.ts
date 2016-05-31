@@ -7,9 +7,8 @@ import {Routes, Router} from '@angular/router';
 import {AppState} from './app.service';
 import {Home} from './home';
 import {HTTP_PROVIDERS, Http} from '@angular/http';
-import {RouterActive} from './router-active';
 import {MapComponent} from './map';
-import {RoomService} from './room/room.service'
+import {RoomService} from './room'
 import {About} from './about';
 
 /*
@@ -19,7 +18,7 @@ import {About} from './about';
 @Component({
   selector: 'app',
   pipes: [],
-  directives: [RouterActive],
+  directives: [],
   providers: [RoomService],
   encapsulation: ViewEncapsulation.None,
   styles: [
@@ -31,9 +30,9 @@ import {About} from './about';
       <md-toolbar color="primary">
           <span>{{ name }}</span>
           <span class="fill"></span>
-          <a md-button [routerLink]="['/site/farmingtonWest']">Farmington - West</a>
-          <a md-button [routerLink]="['/site/farmingtonEast']">Farmington - East</a>
-          <a md-button [routerLink]="['/about']">About</a>
+          <button md-button><a [routerLink]="['/site/farmingtonWest']">Farmington - West</a></button>
+          <button md-button><a [routerLink]="['/site/farmingtonEast']">Farmington - East</a></button>
+          <button md-button><a [routerLink]="['/about']">About</a></button>
       </md-toolbar>
 
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
