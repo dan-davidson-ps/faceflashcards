@@ -1,2 +1,1 @@
-# conf-map
-Conference Room Finder
+Conference Map
