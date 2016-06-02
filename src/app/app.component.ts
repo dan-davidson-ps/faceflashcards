@@ -3,13 +3,16 @@
  */
 import {Component, ViewEncapsulation} from '@angular/core';
 import {Routes, Router} from '@angular/router';
+import {HTTP_PROVIDERS, Http} from '@angular/http';
+import {AuthenticationService} from './authentication'
 
 import {AppState} from './app.service';
 import {Home} from './home';
-import {HTTP_PROVIDERS, Http} from '@angular/http';
 import {MapComponent} from './map';
 import {RoomService} from './room'
 import {About} from './about';
+
+declare var gapi:any;
 
 /*
  * App Component
@@ -43,7 +46,7 @@ import {About} from './about';
   `
 })
 @Routes([
-  {path: '/about', name: 'About', component: About},
+  {path: '/about', component: About},
   {path: '/site/:site', component: MapComponent},
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   // {path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About')}
@@ -53,8 +56,7 @@ export class App {
   name = 'Conference Room Finder';
   url = 'https://www.pluralsight.com';
 
-  constructor(public appState:AppState) {
-
+  constructor(public appState:AppState, public authentication:AuthenticationService) {
   }
 
   ngOnInit() {

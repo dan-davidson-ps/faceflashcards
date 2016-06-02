@@ -32,6 +32,11 @@
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
 
+  <script>function onAuthLoad() {
+    console.log('gapi loaded')
+    window.authService.zone.run(function () { window.authService.initAuth()})
+  }</script>
+  <script src="https://apis.google.com/js/client.js?onload=onAuthLoad" async defer></script>
 
 </head>
 

@@ -3,7 +3,7 @@ import {OnActivate, Router, RouteSegment} from '@angular/router';
 
 import {Room} from '../room';
 import {Site} from '../site';
-import {RoomService} from '../room/room.service';
+import {RoomService} from '../room';
 import {SvgImageComponent} from '../svg-icon';
 
 declare var jQuery:any;
@@ -42,6 +42,10 @@ export class MapComponent implements OnActivate {
 
   showDetail(room:Room) {
     //TODO:
+  }
+
+  getFreeBusy() {
+    this.roomService.getRoomAvailabilityTest()
   }
 
   ngAfterViewInit() {

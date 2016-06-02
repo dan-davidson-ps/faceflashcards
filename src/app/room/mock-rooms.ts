@@ -9,33 +9,107 @@ export var SITES = <any>{
       {
         "id": "azure",
         "name": "Azure",
-        "gcal": "pluralsight.com_2d38323531373034392d343637@resource.calendar.google.com"
+        "resourceId": "-82517049-467"
       },
       {
         "id": "boardroom",
         "name": "Board Room",
-        "gcal": "pluralsight.com_31363038373632383038@resource.calendar.google.com"
+        "resourceId": "1608762808"
       },
       {
         "id": "bootstrap",
         "name": "Bootstrap",
-        "gcal": "pluralsight.com_2d3332343536303937323830@resource.calendar.google.com"
+        "resourceId": "-32456097280"
       },
-      {"id": "cloud", "name": "Cloud"},
-      {"id": "firewall", "name": "Firewall"},
-      {"id": "fusion", "name": "Fusion"},
-      {"id": "houdini", "name": "Houdini"},
-      {"id": "modo", "name": "Modo"},
-      {"id": "mudbox", "name": "Mudbox"},
-      {"id": "nexus", "name": "Nexus"},
-      {"id": "perl", "name": "Perl"},
-      {"id": "powershell", "name": "Powershell"},
-      {"id": "python", "name": "Python"},
-      {"id": "rhino", "name": "Rhino"},
-      {"id": "ruby", "name": "Ruby"},
-      {"id": "scale", "name": "Scale"},
-      {"id": "unity", "name": "Unity"},
-      {"id": "wireshark", "name": "Wireshark"}
+      {
+        "id": "cloud",
+        "name": "Cloud",
+        "resourceId": "-8605166423"
+      },
+
+      {
+        "id": "firewall",
+        "name": "Firewall",
+        "resourceId": "-9714967-558"
+      },
+
+      {
+        "id": "fusion",
+        "name": "Fusion",
+        "resourceId": "35523778-5"
+      },
+
+      {
+        "id": "houdini",
+        "name": "Houdini",
+        "resourceId": "23738342-613"
+      },
+
+      {
+        "id": "modo",
+        "name": "Modo",
+        "resourceId": "-80445996-996"
+      },
+
+      {
+        "id": "mudbox",
+        "name": "Mudbox",
+        "resourceId": "10878091432"
+      },
+
+      {
+        "id": "nexus",
+        "name": "Nexus",
+        "resourceId": "-255694-744"
+      },
+
+      {
+        "id": "perl",
+        "name": "Perl",
+        "resourceId": "-16372633890"
+      },
+
+      {
+        "id": "powershell",
+        "name": "Powershell",
+        "resourceId": "54682534-733"
+      },
+
+      {
+        "id": "python",
+        "name": "Python",
+        "resourceId": "77989579-906"
+      },
+
+      {
+        "id": "rhino",
+        "name": "Rhino",
+        "resourceId": "-18196249339"
+      },
+
+      {
+        "id": "ruby",
+        "name": "Ruby",
+        "resourceId": "-1353451-30"
+      },
+
+      {
+        "id": "scale",
+        "name": "Scale",
+        "resourceId": "-3759354528"
+      },
+
+      {
+        "id": "unity",
+        "name": "Unity",
+        "resourceId": "-6761489623"
+      },
+
+      {
+        "id": "wireshark",
+        "name": "Wireshark",
+        "resourceId": "34321132-373"
+      }
     ]
   }
   ,

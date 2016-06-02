@@ -1,5 +1,12 @@
-export class Room {
+interface RoomBase {
+  resourceName?: string;
+  resourceType?: string;
+  resourceDescription?: string;
+  resourceEmail?: string;
+}
+
+export class Room implements RoomBase {
   id: string;
   name: string;
-  gcal: string;
+  resourceId: string;
 }
