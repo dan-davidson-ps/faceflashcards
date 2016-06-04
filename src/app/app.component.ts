@@ -36,6 +36,7 @@ declare var gapi:any;
           <button md-button><a [routerLink]="['/site/farmingtonWest']">Farmington - West</a></button>
           <button md-button><a [routerLink]="['/site/farmingtonEast']">Farmington - East</a></button>
           <button md-button><a [routerLink]="['/about']">About</a></button>
+          <button md-button (click)="login()">Login</button>
       </md-toolbar>
 
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
@@ -61,6 +62,10 @@ export class App {
 
   ngOnInit() {
     console.log('Initial App State', this.appState.state);
+  }
+
+  login() {
+    this.authentication.login()
   }
 
 }
