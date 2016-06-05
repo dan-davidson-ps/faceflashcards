@@ -94,10 +94,12 @@ export class AuthenticationService {
   updateGoogleUser() {
     if (this.googleUser) {
       //TODO: update login state
-      console.log('userChanged', this.googleUser)
-      console.log('basic Profile', this.googleUser.getBasicProfile())
-      console.log('basic Profile', this.googleUser.getBasicProfile().getName())
-      console.log('basic Profile', this.googleUser.getBasicProfile().getImageUrl())
+
+      let basicProfile = this.googleUser.getBasicProfile();
+      if (basicProfile) {
+        // console.log('basic Profile id', basicProfile.getId())
+        // console.log('basic Profile image', basicProfile.getImageUrl())
+      }
     } else {
       //TODO: clear out login component?
     }
