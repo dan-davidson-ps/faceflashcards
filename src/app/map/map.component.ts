@@ -34,6 +34,13 @@ export class MapComponent implements OnActivate, AfterViewChecked {
     this.endDate = new Date()
     this.endDate.setDate(this.endDate.getDate() + 7)
 
+    roomService.allRoomsInitialized$.subscribe(() => {
+      this.updateSiteAvailabilty()
+    })
+
+    roomService.roomAvailability$.subscribe((room:Room) => {
+      this.displayRoomAvailability(room)
+    })
   }
 
   routerOnActivate(curr:RouteSegment):void {
@@ -51,8 +58,8 @@ export class MapComponent implements OnActivate, AfterViewChecked {
     //TODO:
   }
 
-  getSiteAvailabilty() {
-    this.roomService.getSiteAvailability(this.site.name, this.startDate, this.endDate);
+  updateSiteAvailabilty() {
+    this.roomService.updateSiteAvailability(this.site.id, this.startDate, this.endDate);
   }
 
   ngAfterViewInit() {
@@ -84,5 +91,16 @@ export class MapComponent implements OnActivate, AfterViewChecked {
         roomElement.setAttribute('class', 'conf-room')
       }
     })
+  }
+
+  displayRoomAvailability(room:Room) {
+    let roomElement = document.getElementById(room.id)
+    if (roomElement) {
+      if (room.busy.length === 0) {
+        roomElement.setAttribute('class', 'conf-room-available')
+      } else {
+        roomElement.setAttribute('class', 'conf-room-busy')
+      }
+    }
   }
 }

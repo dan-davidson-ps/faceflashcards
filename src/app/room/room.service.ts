@@ -1,7 +1,9 @@
-import {Room} from '../room';
-import {Site} from '../site';
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs'
+
+import {Room} from '../room';
+import {Site} from '../site';
+import {AuthenticationService} from '../authentication'
 
 declare var gapi:any;
 
@@ -9,6 +11,7 @@ declare var gapi:any;
 export class RoomService {
   private sites:any
   private roomsByResourceId:any
+  private roomsByEmail:any
 
   private roomInitializedSource = new Subject<Room>();
   roomInitialized$ = this.roomInitializedSource.asObservable();
@@ -19,14 +22,18 @@ export class RoomService {
   private roomAvailabilitySource = new Subject<Room>();
   roomAvailability$ = this.roomAvailabilitySource.asObservable();
 
-  constructor() {
+  constructor(public authentication:AuthenticationService) {
     this.loadRooms()
+    this.authentication.userChanged$.subscribe((user) => {
+      this.initRooms()
+    })
   }
 
   private loadRooms() {
     let roomData = require('assets/rooms.json');
     this.sites = roomData
     this.roomsByResourceId = {}
+    this.roomsByEmail = {}
     var names = Object.getOwnPropertyNames(this.sites);
     for (var i = 0; i < names.length; i++) {
       var name = names[i];
@@ -60,30 +67,30 @@ export class RoomService {
       }
     )
 
-    request.execute()
-      .then((resp) => {
-        resp.result.items.forEach((room) => {
-          this.initRoom(room)
-        })
-        this.allRoomsInitializedSource.next(this.sites)
+    request.execute((resp) => {
+      resp.result.items.forEach((room) => {
+        this.initRoom(room)
       })
+      this.allRoomsInitializedSource.next(this.sites)
+    })
   }
 
   private initRoom(resourceRoom) {
-    let room = this.roomsByResourceId(resourceRoom.resourceId)
+    let room = this.roomsByResourceId[resourceRoom.resourceId]
 
     if (room) {
       room.resourceName = resourceRoom.resourceName
       room.resourceType = resourceRoom.resourceType
       room.resourceDescription = resourceRoom.resourceDescription
       room.resourceEmail = resourceRoom.resourceEmail
+      this.roomsByEmail[resourceRoom.resourceEmail] = room
       this.roomInitializedSource.next(room)
     } else {
       // console.log('room not defined', resourceRoom)
     }
   }
 
-  getSiteAvailability(site:string, start: Date, end: Date) {
+  updateSiteAvailability(site:string, start: Date, end: Date) {
     let requestItems = []
     this.sites[site].rooms.forEach((room) => {
       requestItems.push({
@@ -101,10 +108,18 @@ export class RoomService {
 
     let result = []
 
-    request.execute()
-    .then((resp) => {
-      console.log('composed response', resp)
+    request.execute((resp) => {
+      var names = Object.getOwnPropertyNames(resp.result.calendars);
+      for (let i = 0; i < names.length; i++) {
+        let name = names[i];
+        let busyResult = resp.result.calendars[name].busy
+        let room:Room = this.roomsByEmail[name]
+        room.busy = busyResult
+        this.roomAvailabilitySource.next(room)
+      }
     });
+
+    // this.allRoomsInitializedSource.next(this.sites)
   }
 
 }

@@ -3,6 +3,7 @@
     "id": "farmingtonWest",
     "name": "Farmington West",
     "image": "farmington-west.svg",
+    "downloadLink": "https://pluralsight.jiveon.com/servlet/JiveServlet/downloadBody/1301-102-1-1558/Farmington%20West.pdf",
     "rooms": [
       {
         "id": "azure",
@@ -100,6 +101,7 @@
     "id": "farmingtonEast",
     "name": "Farmington East",
     "image": "farmington-east.svg",
+    "downloadLink": "https://pluralsight.jiveon.com/servlet/JiveServlet/downloadBody/1099-102-4-1939/Floor%20Plan_PS%20East.pdf",
     "rooms": [
       {
         "id": "baldy",

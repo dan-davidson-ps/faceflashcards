@@ -1,4 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
+import { Subject } from 'rxjs';
 
 declare var gapi:any;
 const platformUrl = 'https://apis.google.com/js/platform.js?onload=__onGooglePlatformLoaded'
@@ -17,6 +18,9 @@ export class AuthenticationService {
   ];
   private googleUser;
   private auth2;
+
+  private userChangedSource = new Subject<Room>();
+  userChanged$ = this.userChangedSource.asObservable();
 
   constructor(private zone:NgZone){
 
@@ -89,6 +93,7 @@ export class AuthenticationService {
   private userChanged(user) {
     this.googleUser = user;
     this.updateGoogleUser();
+    this.userChangedSource.next(this.googleUser)
   }
 
   updateGoogleUser() {
