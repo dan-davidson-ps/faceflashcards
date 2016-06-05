@@ -2,12 +2,10 @@
  * Angular 2 decorators and services
  */
 import {Component, ViewEncapsulation} from '@angular/core';
-import {Routes, Router} from '@angular/router';
-import {HTTP_PROVIDERS, Http} from '@angular/http';
+import {Routes} from '@angular/router';
 import {AuthenticationService} from './authentication'
 
 import {AppState} from './app.service';
-import {Home} from './home';
 import {MapComponent} from './map';
 import {RoomService} from './room'
 import {About} from './about';
@@ -33,9 +31,9 @@ declare var gapi:any;
       <md-toolbar color="primary">
           <span>{{ name }}</span>
           <span class="fill"></span>
-          <button md-button><a [routerLink]="['/site/farmingtonWest']">Farmington - West</a></button>
-          <button md-button><a [routerLink]="['/site/farmingtonEast']">Farmington - East</a></button>
-          <button md-button><a [routerLink]="['/about']">About</a></button>
+          <a [routerLink]="['/site/farmingtonWest']"><button md-button>Farmington - West</button></a>
+          <a [routerLink]="['/site/farmingtonEast']"><button md-button>Farmington - East</button></a>
+          <a [routerLink]="['/about']"><button md-button>About</button></a>
           <button md-button (click)="login()">Login</button>
       </md-toolbar>
 
