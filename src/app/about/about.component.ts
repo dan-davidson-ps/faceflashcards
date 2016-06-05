@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 /*
  * We're loading this component asynchronously
@@ -20,12 +20,18 @@ console.log('`About` component loaded asynchronously');
   `],
   template: `
   <md-card>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
-  </md-card>
-  <md-card>
     This app is maintained on a volunteer basis.  Please send questions or problems to
     <a href="mailto:jimcullison@pluralsight.com">Jim Cullison</a>
+  </md-card>
+  <md-card>Locations coming soon:
+  <ul>
+    <li>Boston</li>
+    <li>Lehi</li>
+    <li>Oklahoma City</li>
+    <li>Orlando</li>
+    <li>San Diego</li>
+    <li>Schaumburg</li>
+  </ul>
   </md-card>
   `
 })
@@ -35,13 +41,14 @@ export class About {
   }
 
   ngOnInit() {
-    console.log('hello `About` component');
+    // console.log('hello `About` component');
     // static data that is bundled
     // var mockData = require('assets/mock-data/mock-data.json');
     // console.log('mockData', mockData);
     // if you're working with mock data you can also use http.get('assets/mock-data/mock-data.json')
     // this.asyncDataWithWebpack();
   }
+
   asyncDataWithWebpack() {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled

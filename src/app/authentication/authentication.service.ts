@@ -1,4 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
+import { Subject } from 'rxjs';
 
 declare var gapi:any;
 const platformUrl = 'https://apis.google.com/js/platform.js?onload=__onGooglePlatformLoaded'
@@ -17,6 +18,9 @@ export class AuthenticationService {
   ];
   private googleUser;
   private auth2;
+
+  private userChangedSource = new Subject<Room>();
+  userChanged$ = this.userChangedSource.asObservable();
 
   constructor(private zone:NgZone){
 
@@ -89,15 +93,18 @@ export class AuthenticationService {
   private userChanged(user) {
     this.googleUser = user;
     this.updateGoogleUser();
+    this.userChangedSource.next(this.googleUser)
   }
 
   updateGoogleUser() {
     if (this.googleUser) {
       //TODO: update login state
-      console.log('userChanged', this.googleUser)
-      console.log('basic Profile', this.googleUser.getBasicProfile())
-      console.log('basic Profile', this.googleUser.getBasicProfile().getName())
-      console.log('basic Profile', this.googleUser.getBasicProfile().getImageUrl())
+
+      let basicProfile = this.googleUser.getBasicProfile();
+      if (basicProfile) {
+        // console.log('basic Profile id', basicProfile.getId())
+        // console.log('basic Profile image', basicProfile.getImageUrl())
+      }
     } else {
       //TODO: clear out login component?
     }

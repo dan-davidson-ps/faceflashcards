@@ -2,8 +2,8 @@
   "name": "conf-map",
   "version": "0.0.0",
   "description": "Conference Room Finder.  Based on angular2-webpack-starter by AngularClass",
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
-  "homepage": "https://github.com/angularclass/angular2-webpack-starter",
+  "author": "Jim Cullison <james-cullison@pluralsight.com>",
+  "homepage": "",
   "license": "MIT",
   "scripts": {
     "build": "npm run build:dev",
@@ -133,10 +133,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/angular2-webpack-starter.git"
+    "url": "https://github.com/ps-dev/conf-map"
   },
   "bugs": {
-    "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
+    "url": "https://github.com/ps-dev/conf-map/issues"
   },
   "engines": {
     "node": ">= 4.2.1",
