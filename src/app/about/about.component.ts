@@ -20,10 +20,6 @@ console.log('`About` component loaded asynchronously');
   `],
   template: `
   <md-card>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
-  </md-card>
-  <md-card>
     This app is maintained on a volunteer basis.  Please send questions or problems to
     <a href="mailto:jimcullison@pluralsight.com">Jim Cullison</a>
   </md-card>
