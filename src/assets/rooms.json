@@ -104,116 +104,119 @@
     "downloadLink": "https://pluralsight.jiveon.com/servlet/JiveServlet/downloadBody/1099-102-4-1939/Floor%20Plan_PS%20East.pdf",
     "rooms": [
       {
-        "id": "baldy",
-        "name": "Baldy"
-      },
-      {
         "id": "ben_lomond",
-        "name": "Ben Lomond"
+        "name": "Ben Lomond",
+        "resourceId": "-42538514-629"
       },
       {
         "id": "box_elder",
-        "name": "Box Elder"
+        "name": "Box Elder",
+        "resourceId": "32037136-914"
       },
       {
         "id": "big_horn",
-        "name": "Big Horn"
+        "name": "Big Horn",
+        "resourceId": "-71551936-522"
       },
       {
         "id": "cathedral",
-        "name": "Cathedral"
-      },
-      {
-        "id": "devils_castle",
-        "name": "Devils Castle"
-      },
-      {
-        "id": "dromedary_peak",
-        "name": "Dromedary Peak"
+        "name": "Cathedral",
+        "resourceId": "96876149695"
       },
       {
         "id": "francis_peak",
-        "name": "Francis Peak"
+        "name": "Francis Peak",
+        "resourceId": "-71292730493"
       },
       {
         "id": "gobblers",
-        "name": "Gobblers"
+        "name": "Gobblers",
+        "resourceId": "-78131655-711"
       },
       {
         "id": "grandeur_peak",
-        "name": "Grandeur Peak"
+        "name": "Grandeur Peak",
+        "resourceId": "5778052025"
       },
       {
         "id": "gunsight_peak",
-        "name": "Gunsight Peak"
+        "name": "Gunsight Peak",
+        "resourceId": "-32116785-299"
       },
       {
         "id": "hayden_peak",
-        "name": "Hayden Peak"
+        "name": "Hayden Peak",
+        "resourceId": "56418390709"
       },
       {
         "id": "hidden_peak",
-        "name": "Hidden Peak"
+        "name": "Hidden Peak",
+        "resourceId": "75055675-526"
       },
       {
         "id": "honeycomb",
-        "name": "Honeycomb"
-      },
-      {
-        "id": "kessler_peak",
-        "name": "Kessler Peak"
+        "name": "Honeycomb",
+        "resourceId": "89848997149"
       },
       {
         "id": "kings_peak",
-        "name": "Kings Peak"
+        "name": "Kings Peak",
+        "resourceId": "-4441875-618"
       },
       {
         "id": "lone_peak",
-        "name": "Lone Peak"
+        "name": "Lone Peak",
+        "resourceId": "-26189360-634"
       },
       {
         "id": "lookout_peak",
-        "name": "Lookout Peak"
+        "name": "Lookout Peak",
+        "resourceId": "-65525035-34"
       },
       {
         "id": "monte_cristo",
-        "name": "Monte Cristo"
+        "name": "Monte Cristo",
+        "resourceId": "-9713370452"
       },
       {
         "id": "mount_lovenia",
-        "name": "Mount Lovenia"
+        "name": "Mount Lovenia",
+        "resourceId": "-39256641132"
       },
       {
         "id": "mount_ogden",
-        "name": "Mount Ogden"
+        "name": "Mount Ogden",
+        "resourceId": "29258870-751"
       },
       {
         "id": "olympus",
-        "name": "Olympus"
+        "name": "Olympus",
+        "resourceId": "-69285346-820"
       },
       {
         "id": "pfeifferhorn",
-        "name": "Pfeifferhorn"
-      },
-      {
-        "id": "south_thunder",
-        "name": "South Thunder"
+        "name": "Pfeifferhorn",
+        "resourceId": "-44174599-202"
       },
       {
         "id": "summit_lounge",
-        "name": "Summit Lounge"
+        "name": "Summit Lounge",
+        "resourceId": "43870395-546"
       },
       {
         "id": "superior",
-        "name": "Superior"
+        "name": "Superior",
+        "resourceId": "68267373-771"
       },
       {
         "id": "timpanogos",
-        "name": "Timpanogos"
+        "name": "Timpanogos",
+        "resourceId": "91821632-412"
       },
       {
         "id": "wolverine",
-        "name": "Wolverine"
+        "name": "Wolverine",
+        "resourceId": "-6606820229"
       }
     ]
   }
