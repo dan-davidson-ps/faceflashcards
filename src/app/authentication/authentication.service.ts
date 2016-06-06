@@ -1,6 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Subject } from 'rxjs';
 
+import { Room } from '../room';
+
 declare var gapi:any;
 const platformUrl = 'https://apis.google.com/js/platform.js?onload=__onGooglePlatformLoaded'
 const clientUrl = 'https://apis.google.com/js/client.js?onload=__onGoogleClientLoaded'

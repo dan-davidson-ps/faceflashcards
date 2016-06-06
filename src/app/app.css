@@ -60,37 +60,37 @@ footer{
   fill-opacity: 0.4;
   fill-rule: evenodd;
   stroke: #000000;
-  stroke-width: 1px;
+  stroke-width: 1.5px;
   stroke-linecap: butt;
   stroke-linejoin: miter;
   stroke-opacity: 1;
-  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 1s; /* Firefox < 16 */
-  -ms-animation: fadein 1s; /* Internet Explorer */
-  -o-animation: fadein 1s; /* Opera < 12.1 */
-  animation: fadein 1s;
+  -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 0.5s; /* Firefox < 16 */
+  -ms-animation: fadein 0.5s; /* Internet Explorer */
+  -o-animation: fadein 0.5s; /* Opera < 12.1 */
+  animation: fadein 0.5s;
 }
 .conf-room-available:hover {
-  fill-opacity: 0.9;
+  fill-opacity: 0.7;
 }
 
 .conf-room-busy {
-  fill: red;
+  fill: #AD190C;
   fill-opacity: 0.4;
   fill-rule: evenodd;
   stroke: #000000;
-  stroke-width: 1px;
+  stroke-width: 0.75px;
   stroke-linecap: butt;
   stroke-linejoin: miter;
   stroke-opacity: 1;
-  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 1s; /* Firefox < 16 */
-  -ms-animation: fadein 1s; /* Internet Explorer */
-  -o-animation: fadein 1s; /* Opera < 12.1 */
-  animation: fadein 1s;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
 }
 .conf-room-busy:hover {
-  fill-opacity: 0.9;
+  fill-opacity: 0.7;
 }
 
 @keyframes fadein {

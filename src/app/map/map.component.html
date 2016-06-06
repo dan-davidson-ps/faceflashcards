@@ -1,3 +1,7 @@
 <div id="map" style="margin:10px">
+  Meeting time:
+  <my-date placeholder="start" [type]="date" [(date)]="startDate"></my-date>
+  <my-date placeholder="end" [type]="date" [(date)]="endDate"></my-date>
+  <button md-raised-button color="primary" (click)="updateSiteAvailability()">Search</button>
   <svg-image id="svg-map" src="{{image}}"></svg-image>
 </div>

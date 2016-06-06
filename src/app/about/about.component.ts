@@ -20,7 +20,7 @@ console.log('`About` component loaded asynchronously');
   `],
   template: `
   <md-card>
-    This app is maintained on a volunteer basis.  Please send questions or problems to
+    Please send questions or problems to
     <a href="mailto:jimcullison@pluralsight.com">Jim Cullison</a>
   </md-card>
   <md-card>Locations coming soon:

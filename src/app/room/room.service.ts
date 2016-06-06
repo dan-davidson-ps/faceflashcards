@@ -18,6 +18,7 @@ export class RoomService {
 
   private allRoomsInitializedSource = new Subject<Site[]>();
   allRoomsInitialized$ = this.allRoomsInitializedSource.asObservable();
+  private allRoomsInitialized = false;
 
   private roomAvailabilitySource = new Subject<Room>();
   roomAvailability$ = this.roomAvailabilitySource.asObservable();
@@ -60,18 +61,21 @@ export class RoomService {
   }
 
   initRooms() {
-    let request = gapi.client.directory.resources.calendars.list(
-      {
-        'customer': 'my_customer',
-        'maxResults': 200
-      }
-    )
+    this.authentication.initAPI.then(() => {
+      let request = gapi.client.directory.resources.calendars.list(
+        {
+          'customer': 'my_customer',
+          'maxResults': 200
+        }
+      )
 
-    request.execute((resp) => {
-      resp.result.items.forEach((room) => {
-        this.initRoom(room)
+      request.execute((resp) => {
+        resp.result.items.forEach((room) => {
+          this.initRoom(room)
+        })
+        this.allRoomsInitialized = true
+        this.allRoomsInitializedSource.next(this.sites)
       })
-      this.allRoomsInitializedSource.next(this.sites)
     })
   }
 
@@ -86,40 +90,44 @@ export class RoomService {
       this.roomsByEmail[resourceRoom.resourceEmail] = room
       this.roomInitializedSource.next(room)
     } else {
-      // console.log('room not defined', resourceRoom)
+      // console.log('room not defined', resourceRoom.resourceName)
     }
   }
 
   updateSiteAvailability(site:string, start: Date, end: Date) {
-    let requestItems = []
-    this.sites[site].rooms.forEach((room) => {
-      requestItems.push({
-        "id": room.resourceEmail
-      })
-    })
-
-    let requestParams = {
-      "items": requestItems,
-      "timeMin": start,
-      "timeMax": end
+    if (! this.allRoomsInitialized) {
+      return
     }
 
-    let request = gapi.client.calendar.freebusy.query(requestParams);
+    this.authentication.initAPI.then(() => {
+      let requestItems = []
+      this.sites[site].rooms.forEach((room) => {
+        requestItems.push({
+          "id": room.resourceEmail
+        })
+      })
 
-    let result = []
-
-    request.execute((resp) => {
-      var names = Object.getOwnPropertyNames(resp.result.calendars);
-      for (let i = 0; i < names.length; i++) {
-        let name = names[i];
-        let busyResult = resp.result.calendars[name].busy
-        let room:Room = this.roomsByEmail[name]
-        room.busy = busyResult
-        this.roomAvailabilitySource.next(room)
+      let requestParams = {
+        "items": requestItems,
+        "timeMin": start,
+        "timeMax": end
       }
-    });
 
-    // this.allRoomsInitializedSource.next(this.sites)
+      let request = gapi.client.calendar.freebusy.query(requestParams);
+
+      let result = []
+
+      request.execute((resp) => {
+        var names = Object.getOwnPropertyNames(resp.result.calendars);
+        for (let i = 0; i < names.length; i++) {
+          let name = names[i];
+          let busyResult = resp.result.calendars[name].busy
+          let room:Room = this.roomsByEmail[name]
+          room.busy = busyResult
+          this.roomAvailabilitySource.next(room)
+        }
+      });
+    })
   }
 
 }

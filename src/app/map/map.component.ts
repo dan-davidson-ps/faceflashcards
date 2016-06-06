@@ -1,10 +1,11 @@
-import {ViewChild, ElementRef, Component, Input, Inject, AfterViewChecked} from '@angular/core';
+import {ViewChild, ElementRef, Component, Input, AfterViewChecked} from '@angular/core';
 import {OnActivate, Router, RouteSegment} from '@angular/router';
 
 import {Room} from '../room';
 import {Site} from '../site';
 import {RoomService} from '../room';
 import {SvgImageComponent} from '../svg-icon';
+import {CustomDate} from '../date';
 
 declare var jQuery:any;
 
@@ -12,14 +13,14 @@ declare var jQuery:any;
   selector: 'map',
   templateUrl: 'app/map/map.component.html',
   styleUrls: ['app/map/map.component.css'],
-  directives: [SvgImageComponent]
+  directives: [SvgImageComponent,CustomDate]
 })
 export class MapComponent implements OnActivate, AfterViewChecked {
 
   private image:string;
   private site:Site;
-  private startDate:Date;
-  private endDate:Date;
+  @Input() private startDate:Date;
+  @Input() private endDate:Date;
   private sitePromise:Promise<any>;
   private roomCssInitialized:boolean = false
 
@@ -32,10 +33,10 @@ export class MapComponent implements OnActivate, AfterViewChecked {
               private elementRef:ElementRef) {
     this.startDate = new Date()
     this.endDate = new Date()
-    this.endDate.setDate(this.endDate.getDate() + 7)
+    this.endDate.setHours(this.endDate.getHours() + 1)
 
     roomService.allRoomsInitialized$.subscribe(() => {
-      this.updateSiteAvailabilty()
+      this.updateSiteAvailability()
     })
 
     roomService.roomAvailability$.subscribe((room:Room) => {
@@ -43,6 +44,8 @@ export class MapComponent implements OnActivate, AfterViewChecked {
         this.displayRoomAvailability(room)
       }, this.randomDelay(100, 500))
     })
+
+
 
   }
 
@@ -65,20 +68,13 @@ export class MapComponent implements OnActivate, AfterViewChecked {
     //TODO:
   }
 
-  updateSiteAvailabilty() {
+  updateSiteAvailability() {
     this.roomService.updateSiteAvailability(this.site.id, this.startDate, this.endDate);
   }
 
-  ngAfterViewInit() {
-    // console.log('afterViewInit')
-  }
-
   ngAfterViewChecked() {
-    // console.log('afterViewChecked')
     this.svg.svgLoaded$.subscribe((val) => {
-      // console.log('svgLoaded event fired')
       if (!this.roomCssInitialized) {
-        // console.log('initialized was false')
         this.initRoomCss()
       }
     })
@@ -91,7 +87,6 @@ export class MapComponent implements OnActivate, AfterViewChecked {
   initRoomCss() {
     this.rooms.forEach((room) => {
       let roomElement = document.getElementById(room.id)
-      // console.log('room', room.id, roomElement)
       if (roomElement) {
         this.roomCssInitialized = true
         roomElement.setAttribute('style', '')
