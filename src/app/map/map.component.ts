@@ -39,8 +39,15 @@ export class MapComponent implements OnActivate, AfterViewChecked {
     })
 
     roomService.roomAvailability$.subscribe((room:Room) => {
-      this.displayRoomAvailability(room)
+      setTimeout(() => {
+        this.displayRoomAvailability(room)
+      }, this.randomDelay(100, 500))
     })
+
+  }
+
+  private randomDelay(bottom, top) {
+    return Math.floor( Math.random() * ( 1 + top - bottom ) ) + bottom;
   }
 
   routerOnActivate(curr:RouteSegment):void {

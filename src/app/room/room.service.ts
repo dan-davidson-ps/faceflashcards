@@ -13,8 +13,8 @@ export class RoomService {
   private roomsByResourceId:any
   private roomsByEmail:any
 
-  private roomInitializedSource = new Subject<Room>();
-  roomInitialized$ = this.roomInitializedSource.asObservable();
+  private roomInitializedSource = new Subject<Room>()
+  roomInitialized$ = this.roomInitializedSource.asObservable()
 
   private allRoomsInitializedSource = new Subject<Site[]>();
   allRoomsInitialized$ = this.allRoomsInitializedSource.asObservable();
