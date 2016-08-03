@@ -45,6 +45,8 @@ npm-debug.log
 /dist
 /public/__build__/
 /src/*/__build__/
+/src/**/*.map
+/src/**/*.js
 /__build__/**
 /public/dist/
 /src/*/dist/

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs'
+import * as Rx from 'rxjs';
 
 import {Room} from '../room';
 import {Site} from '../site';
@@ -13,14 +13,14 @@ export class RoomService {
   private roomsByResourceId:any
   private roomsByEmail:any
 
-  private roomInitializedSource = new Subject<Room>()
+  private roomInitializedSource = new Rx.Subject<Room>()
   roomInitialized$ = this.roomInitializedSource.asObservable()
 
-  private allRoomsInitializedSource = new Subject<Site[]>();
+  private allRoomsInitializedSource = new Rx.Subject<Site[]>();
   allRoomsInitialized$ = this.allRoomsInitializedSource.asObservable();
   private allRoomsInitialized = false;
 
-  private roomAvailabilitySource = new Subject<Room>();
+  private roomAvailabilitySource = new Rx.Subject<Room>();
   roomAvailability$ = this.roomAvailabilitySource.asObservable();
 
   constructor(public authentication:AuthenticationService) {
