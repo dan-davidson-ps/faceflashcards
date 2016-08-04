@@ -32,7 +32,7 @@
     "server": "npm run server:dev",
     "server:dev": "webpack-dev-server --config config/webpack.dev.js --inline --progress --profile --colors --watch --display-error-details --display-cached --content-base src/",
     "server:dev:hmr": "npm run server:dev -- --hot",
-    "server:prod": "http-server dist --cors -d false -p 3000",
+    "server:prod": "http-server dist --cors -d false -p 80",
     "start": "npm run server:dev",
     "start:hmr": "npm run server:dev:hmr",
     "test": "karma start",
