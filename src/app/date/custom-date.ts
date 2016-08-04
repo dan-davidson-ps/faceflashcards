@@ -16,7 +16,12 @@ export class CustomDate {
   }
 
   get date() {
-    return this._date
+    var parsedDate = this.parseDateString(this._date);
+    if (parsedDate.getTime() != NaN) {
+      return parsedDate
+    } else {
+      return undefined
+    }
   }
 
   dateChange:EventEmitter<Date>;
