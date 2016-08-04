@@ -33,7 +33,7 @@ declare var gapi:any;
           <span class="fill"></span>
           <a [routerLink]="['/site/farmingtonWest']"><button md-button>Farmington - West</button></a>
           <a [routerLink]="['/site/farmingtonEast']"><button md-button>Farmington - East</button></a>
-          <a [routerLink]="['/about']"><button md-button>About</button></a>
+          <!--<a [routerLink]="['/about']"><button md-button>About</button></a>-->
           <button md-button (click)="login()">Login</button>
       </md-toolbar>
 
@@ -45,7 +45,7 @@ declare var gapi:any;
   `
 })
 @Routes([
-  {path: '/about', component: About},
+  // {path: '/about', component: About},
   {path: '/site/:site', component: MapComponent},
   // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
   // {path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About')}
