@@ -11,8 +11,8 @@ declare var jQuery:any;
 
 @Component({
   selector: 'map',
-  templateUrl: 'app/map/map.component.html',
-  styleUrls: ['app/map/map.component.css'],
+  templateUrl: 'map.component.html',
+  styleUrls: ['map.component.css'],
   directives: [SvgImageComponent,CustomDate]
 })
 export class MapComponent implements OnActivate, AfterViewChecked {

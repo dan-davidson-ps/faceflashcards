@@ -20,8 +20,8 @@
     "./typings/index.d.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "resolveGlobs": true,
-    "forkChecker": true
+    "forkChecker": true,
+    "useWebpackText": true //Allows loaders to be chained to awesome-typescript-loader.
   },
   "compileOnSave": false,
   "buildOnSave": false,
