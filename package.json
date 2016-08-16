@@ -78,6 +78,9 @@
     "core-js": "^2.4.0",
     "jquery": "2.2.4",
     "normalize.css": "^4.1.1",
+    "opener": "1.4.1",
+    "optimist": "0.6.1",
+    "portfinder": "1.0.7",
     "rxjs": "5.0.0-beta.6",
     "zone.js": "~0.6.12"
   },
