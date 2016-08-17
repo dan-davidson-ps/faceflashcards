@@ -13,7 +13,6 @@ var colors     = require('colors'),
 
 var ifaces = os.networkInterfaces();
 
-console.log('argv', argv)
 
 argv._.push('dist')
 argv.cors = true
@@ -107,8 +106,6 @@ function listen(port) {
         logFn: logger.request,
         proxy: proxy
     };
-
-    console.log('options', options)
 
     if (argv.cors) {
         options.cors = true;
