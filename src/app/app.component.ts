@@ -34,14 +34,22 @@ declare var gapi:any;
           <a [routerLink]="['/site/farmingtonWest']"><button md-button>Farmington - West</button></a>
           <a [routerLink]="['/site/farmingtonEast']"><button md-button>Farmington - East</button></a>
           <!--<a [routerLink]="['/about']"><button md-button>About</button></a>-->
-          <button md-button (click)="login()">Login</button>
+         <button md-button (click)="login()">Login</button>
       </md-toolbar>
 
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
 
       <router-outlet></router-outlet>
+      
+      <section class="feedback">
+        <a href="https://goo.gl/forms/nR91piae4XMmveEr2" target="_blank">
+           <button md-mini-fab aria-label="Suggestions" (click)="feedback()">
+            <md-icon>comment</md-icon>
+          </button>
+        </a>
+      </section>
 
-      </md-content>
+    </md-content>
   `
 })
 @Routes([
