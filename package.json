@@ -1,8 +1,8 @@
 {
-  "name": "conf-map",
+  "name": "face-flash-cards",
   "version": "0.0.0",
-  "description": "Conference Room Finder.  Based on angular2-webpack-starter by AngularClass",
-  "author": "Jim Cullison <james-cullison@pluralsight.com>",
+  "description": "Face Flash Cards.  Based on angular2-webpack-starter by AngularClass",
+  "author": "Dan Davidson <dan-davidson@pluralsight.com>",
   "homepage": "",
   "license": "MIT",
   "scripts": {
